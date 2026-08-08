@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
+
+<title>CAFEF - Cổ đông</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #f5f5f5;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    color: #666;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    background: #fff;
+    padding: 17px 20px 15px;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+
+/* LOGO */
+
+.logo-area {
+    width: 255px;
+    flex-shrink: 0;
+}
+
+.logo {
+    font-size: 43px;
+    line-height: 38px;
+    font-weight: 900;
+    letter-spacing: -4px;
+    color: #c91c25;
+}
+
+.logo .blue {
+    color: #116c99;
+}
+
+.logo-sub {
+    margin-top: 7px;
+    font-size: 11px;
+    color: #666;
+    white-space: nowrap;
+}
+
+
+/* SEARCH */
+
+.search-box {
+    height: 58px;
+    flex: 1;
+    border-radius: 17px;
+    background: #f1f1f1;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 17px;
+
+    color: #aaa;
+    font-size: 19px;
+}
+
+.search-icon {
+    width: 28px;
+    height: 28px;
+
+    border: 3px solid #999;
+    border-radius: 50%;
+
+    margin-right: 15px;
+
+    position: relative;
+}
+
+.search-icon:after {
+    content: "";
+    position: absolute;
+
+    width: 11px;
+    height: 3px;
+
+    background: #999;
+
+    right: -8px;
+    bottom: 0;
+
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    background:
+        linear-gradient(
+            #474747,
+            #292929
+        );
+
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #111;
+}
+
+.menu-item {
+    height: 96px;
+
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border-right: 1px solid #171717;
+
+    font-size: 18px;
+}
+
+.menu-icon {
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.menu-text {
+    margin-top: 6px;
+}
+
+
+/* =====================================================
+   KHOẢNG TRẮNG GIỐNG ẢNH
+===================================================== */
+
+.top-space {
+    height: 62px;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 0 21px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.stock-card {
+    width: 100%;
+
+    margin-bottom: 31px;
+
+    background: #fff;
+
+    border: 1px solid #c7c7c7;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,.08);
+}
+
+
+/* =====================================================
+   CARD HEADER XANH
+===================================================== */
+
+.card-header {
+    min-height: 81px;
+
+    padding: 17px 21px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            #6aaad4,
+            #3e83b5
+        );
+
+    border-bottom: 1px solid #37759f;
+
+    color: white;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 1px 1px rgba(0,0,0,.15);
+}
+
+
+/* =====================================================
+   ROW
+===================================================== */
+
+.info-row {
+    min-height: 91px;
+
+    display: grid;
+
+    grid-template-columns:
+        46% 54%;
+
+    align-items: center;
+
+    border-bottom:
+        1px solid #d1d1d1;
+
+    background:
+        linear-gradient(
+            #ffffff,
+            #f5f5f5
+        );
+}
+
+.info-row:last-child {
+    border-bottom: 0;
+}
+
+
+/* LABEL */
+
+.info-label {
+    padding:
+        18px 21px;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #666;
+}
+
+
+/* VALUE */
+
+.info-value {
+    padding:
+        18px 12px;
+
+    font-size: 22px;
+
+    color: #666;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =====================================================
+   GIÁ
+===================================================== */
+
+.price-up {
+    color: #07883d !important;
+    font-weight: 700;
+}
+
+.price-down {
+    color: #d22b2b !important;
+    font-weight: 700;
+}
+
+.price-neutral {
+    color: #666 !important;
+}
+
+.arrow {
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+
+/* =====================================================
+   TỔNG GIÁ TRỊ
+===================================================== */
+
+.total-money {
+    font-weight: 700;
+    color: #333;
+}
+
+
+/* =====================================================
+   % SỞ HỮU
+===================================================== */
+
+.percent {
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    text-align: center;
+
+    padding: 15px 20px 45px;
+
+    color: #999;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .header {
+        padding:
+            14px 20px 15px;
+    }
+
+    .header-top {
+        gap: 15px;
+    }
+
+    .logo-area {
+        width: 250px;
+    }
+
+    .logo {
+        font-size: 39px;
+        line-height: 35px;
+    }
+
+    .logo-sub {
+        font-size: 10px;
+    }
+
+    .search-box {
+        height: 56px;
+        width: 100%;
+    }
+
+    .header-top {
+        flex-wrap: wrap;
+    }
+
+    .logo-area {
+        width: auto;
+        flex: 1;
+    }
+
+    .search-box {
+        flex-basis: 100%;
+        order: 2;
+    }
+
+
+    /* MENU */
+
+    .menu-item {
+        height: 99px;
+        font-size: 16px;
+    }
+
+    .menu-icon {
+        font-size: 28px;
+    }
+
+
+    /* CONTENT */
+
+    .top-space {
+        height: 62px;
+    }
+
+    .content {
+        padding:
+            0 20px;
+    }
+
+
+    /* CARD */
+
+    .stock-card {
+        margin-bottom: 31px;
+    }
+
+    .card-header {
+        min-height: 80px;
+
+        padding:
+            16px 21px;
+
+        font-size: 20px;
+
+        line-height: 27px;
+    }
+
+
+    /* ROW */
+
+    .info-row {
+        min-height: 91px;
+
+        grid-template-columns:
+            46% 54%;
+    }
+
+    .info-label {
+        padding:
+            18px 21px;
+
+        font-size: 18px;
+
+        line-height: 24px;
+    }
+
+    .info-value {
+        padding:
+            18px 10px;
+
+        font-size: 18px;
+
+        line-height: 24px;
+    }
+
+    .total-money {
+        font-size: 18px;
+    }
+
+}
+
+
+/* =====================================================
+   IPHONE RẤT HẸP
+===================================================== */
+
+@media (max-width: 390px) {
+
+    .menu-item {
+        font-size: 14px;
+    }
+
+    .menu-icon {
+        font-size: 25px;
+    }
+
+    .card-header {
+        font-size: 19px;
+    }
+
+    .info-label,
+    .info-value {
+        font-size: 17px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-top">
+
+        <div class="logo-area">
+
+            <div class="logo">
+                CAF<span class="blue">E</span>
+            </div>
+
+            <div class="logo-sub">
+                TRANG THÔNG TIN ĐIỆN TỬ TỔNG HỢP
+            </div>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <div class="search-icon"></div>
+
+            <span>
+                Tìm mã CK hoặc Công ty
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<nav class="menu">
+
+    <div class="menu-item">
+
+        <div class="menu-icon">⌂</div>
+
+        <div class="menu-text">
+            Home
+        </div>
+
+    </div>
+
+
+    <div class="menu-item">
+
+        <div class="menu-icon">◉</div>
+
+        <div class="menu-text">
+            Tin mới
+        </div>
+
+    </div>
+
+
+    <div class="menu-item">
+
+        <div class="menu-icon">▥</div>
+
+        <div class="menu-text">
+            Market
+        </div>
+
+    </div>
+
+
+    <div class="menu-item">
+
+        <div class="menu-icon">↗</div>
+
+        <div class="menu-text">
+            Watch list
+        </div>
+
+    </div>
+
+
+    <div class="menu-item">
+
+        <div class="menu-icon">☰</div>
+
+        <div class="menu-text">
+            Mở rộng
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     KHOẢNG TRẮNG
+===================================================== -->
+
+<div class="top-space"></div>
+
+
+
+<!-- =====================================================
+     DANH SÁCH
+===================================================== -->
+
+<main
+    class="content"
+    id="stockList">
+</main>
+
+
+
+<div class="footer">
+    Dữ liệu mô phỏng
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   TÊN
+===================================================== */
+
+const names = [
+
+    "Dragon Capital",
+
+    "Trần Đình Long",
+
+    "Bùi Văn Tiến",
+
+    "Vũ Thị Hiền",
+
+    "Nguyễn Minh Anh",
+
+    "Phạm Quốc Huy",
+
+    "Lê Hoàng Nam",
+
+    "Nguyễn Thị Lan",
+
+    "Trần Quốc Việt",
+
+    "Hoàng Minh Đức",
+
+    "Phạm Minh Tuấn",
+
+    "Lê Văn Thành",
+
+    "Nguyễn Hoàng Nam",
+
+    "VOF Investment Limited",
+
+    "Công ty Đầu tư Thành Công"
+
+];
+
+
+
+/* =====================================================
+   HÀM RANDOM
+===================================================== */
+
+function random(min, max) {
+
+    return Math.floor(
+        Math.random() *
+        (max - min + 1)
+    ) + min;
+
+}
+
+
+
+/* =====================================================
+   FORMAT SỐ
+===================================================== */
+
+function numberFormat(number) {
+
+    return Math.round(number)
+        .toLocaleString("vi-VN");
+
+}
+
+
+
+/* =====================================================
+   FORMAT TIỀN
+===================================================== */
+
+function moneyFormat(number) {
+
+    return Math.round(number)
+        .toLocaleString("vi-VN")
+        + " đ";
+
+}
+
+
+
+/* =====================================================
+   TRỘN MẢNG
+===================================================== */
+
+function shuffle(array) {
+
+    return array
+        .sort(
+            () => Math.random() - 0.5
+        );
+
+}
+
+
+
+/* =====================================================
+   TẠO DỮ LIỆU
+===================================================== */
+
+function createData() {
+
+    const fixed = [
+
+        "Dragon Capital",
+
+        "Trần Đình Long",
+
+        "Bùi Văn Tiến"
+
+    ];
+
+
+    const others = names.filter(
+
+        name =>
+            !fixed.includes(name)
+
+    );
+
+
+    const randomNames =
+
+        shuffle([...others])
+            .slice(0, 6);
+
+
+    const allNames = [
+
+        ...fixed,
+
+        ...randomNames
+
+    ];
+
+
+    return allNames.map(
+
+        name => {
+
+
+            /*
+              Số cổ phiếu
+            */
+
+            const shares = random(
+
+                120000000,
+                690000000
+            );
+
+
+            /*
+              Giá cổ phiếu
+            */
+
+            const price = random(
+
+                25000,
+                145000
+            );
+
+
+            /*
+              Tỷ lệ
+            */
+
+            const percentage =
+
+                (
+                    Math.random() *
+                    7 +
+                    1
+                ).toFixed(2);
+
+
+            return {
+
+                name:
+                    name,
+
+                shares:
+                    shares,
+
+                price:
+                    price,
+
+                oldPrice:
+                    price,
+
+                percentage:
+                    percentage
+
+            };
+
+        }
+
+    );
+
+}
+
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+const data = createData();
+
+
+
+/* =====================================================
+   HIỂN THỊ CARD
+===================================================== */
+
+function render() {
+
+    const list =
+        document.getElementById(
+            "stockList"
+        );
+
+
+    list.innerHTML = "";
+
+
+    data.forEach(
+
+        (item, index) => {
+
+
+            const card =
+                document.createElement(
+                    "section"
+                );
+
+
+            card.className =
+                "stock-card";
+
+
+            card.innerHTML = `
+
+                <!-- HEADER -->
+
+                <div class="card-header">
+
+                    ${item.name}
+
+                </div>
+
+
+                <!-- SỐ CỔ PHIẾU -->
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Số cổ phiếu:
+                    </div>
+
+                    <div
+                        class="info-value"
+                        id="shares-${index}"
+                    >
+
+                        ${numberFormat(
+                            item.shares
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <!-- GIÁ HIỆN TẠI -->
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Giá hiện tại:
+                    </div>
+
+                    <div
+                        class="info-value price-neutral"
+                        id="price-${index}"
+                    >
+
+                        ${moneyFormat(
+                            item.price
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <!-- BIẾN ĐỘNG -->
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Biến động:
+                    </div>
+
+                    <div
+                        class="info-value"
+                        id="change-${index}"
+                    >
+
+                        0,00%
+
+                    </div>
+
+                </div>
+
+
+                <!-- TỔNG GIÁ TRỊ -->
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Tổng giá trị:
+                    </div>
+
+                    <div
+                        class="info-value total-money"
+                        id="total-${index}"
+                    >
+
+                        ${moneyFormat(
+                            item.shares *
+                            item.price
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <!-- TỶ LỆ -->
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Tỷ lệ %:
+                    </div>
+
+                    <div class="info-value percent">
+
+                        ${item.percentage}%
+
+                    </div>
+
+                </div>
+
+
+                <!-- NGÀY -->
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Tính đến ngày:
+                    </div>
+
+                    <div class="info-value">
+
+                        25/05/2026
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            list.appendChild(card);
+
+        }
+
+    );
+
+}
+
+
+
+/* =====================================================
+   BIẾN ĐỘNG GIÁ
+===================================================== */
+
+function updateMarket() {
+
+
+    data.forEach(
+
+        (item, index) => {
+
+
+            /*
+              Giá cũ
+            */
+
+            item.oldPrice =
+                item.price;
+
+
+            /*
+              Biến động nhỏ
+              mỗi lần cập nhật
+            */
+
+            const percent =
+
+                (
+                    Math.random() *
+                    0.8
+                ) - 0.4;
+
+
+            /*
+              Giá mới
+            */
+
+            item.price =
+
+                item.price *
+                (
+                    1 +
+                    percent / 100
+                );
+
+
+            /*
+              Giá không âm
+            */
+
+            if (
+                item.price < 1000
+            ) {
+
+                item.price = 1000;
+
+            }
+
+
+            /*
+              % thay đổi
+            */
+
+            const change =
+
+                (
+                    (
+                        item.price -
+                        item.oldPrice
+                    )
+                    /
+                    item.oldPrice
+                ) * 100;
+
+
+            /*
+              Tổng tiền
+            */
+
+            const total =
+
+                item.shares *
+                item.price;
+
+
+
+            const priceElement =
+
+                document.getElementById(
+                    "price-" + index
+                );
+
+
+            const changeElement =
+
+                document.getElementById(
+                    "change-" + index
+                );
+
+
+            const totalElement =
+
+                document.getElementById(
+                    "total-" + index
+                );
+
+
+
+            /*
+              Cập nhật giá
+            */
+
+            priceElement.textContent =
+
+                moneyFormat(
+                    item.price
+                );
+
+
+            /*
+              Cập nhật tổng
+            */
+
+            totalElement.textContent =
+
+                moneyFormat(
+                    total
+                );
+
+
+
+            /*
+              TĂNG
+            */
+
+            if (change > 0) {
+
+
+                priceElement.className =
+                    "info-value price-up";
+
+
+                changeElement.className =
+                    "info-value price-up";
+
+
+                changeElement.innerHTML =
+
+                    "▲ +" +
+                    change
+                        .toFixed(2)
+                        .replace(".", ",") +
+                    "%";
+
+            }
+
+
+            /*
+              GIẢM
+            */
+
+            else if (change < 0) {
+
+
+                priceElement.className =
+                    "info-value price-down";
+
+
+                changeElement.className =
+                    "info-value price-down";
+
+
+                changeElement.innerHTML =
+
+                    "▼ " +
+                    change
+                        .toFixed(2)
+                        .replace(".", ",") +
+                    "%";
+
+            }
+
+
+            /*
+              KHÔNG ĐỔI
+            */
+
+            else {
+
+
+                priceElement.className =
+                    "info-value price-neutral";
+
+
+                changeElement.className =
+                    "info-value";
+
+
+                changeElement.textContent =
+                    "0,00%";
+
+            }
+
+        }
+
+    );
+
+}
+
+
+
+/* =====================================================
+   CHẠY
+===================================================== */
+
+render();
+
+
+/*
+   Giá biến động liên tục
+   mỗi 1 giây
+*/
+
+setInterval(
+    updateMarket,
+    1000
+);
+
+
+</script>
+
+</body>
+</html>
